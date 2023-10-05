@@ -1,4 +1,4 @@
-module gin_django_auth
+module github.com/Flexin1981/gin_django_auth
 
 go 1.20
 
