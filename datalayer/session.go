@@ -1,7 +1,7 @@
 package datalayer
 
 import (
-	"gin_django_auth/django_models"
+	"github.com/Flexin1981/gin_django_auth/django_models"
 )
 
 type SessionService struct {
