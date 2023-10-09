@@ -1,6 +1,6 @@
 <h1>Gin-Gonic Django Authentication Handler</h1>
 
-[![Go](https://github.com/dowling-john/gin_django_auth/actions/workflows/unit_testing.yaml/badge.svg)](https://github.com/dowling-john/gin_django_auth/actions/workflows/unit_testing.yaml)
+[![Unit Tests](https://github.com/dowling-john/gin_django_auth/actions/workflows/unit_testing.yaml/badge.svg)](https://github.com/dowling-john/gin_django_auth/actions/workflows/unit_testing.yaml)
 [![Test Coverage](https://github.com/dowling-john/gin_django_auth/actions/workflows/test_coverage.yaml/badge.svg)](https://github.com/dowling-john/gin_django_auth/actions/workflows/test_coverage.yaml)
 
 <h4>
@@ -17,7 +17,7 @@ Features
     - Secure Gin routes with a Django session cookie
 
 <h3>Installation</h2>
-```sh
+```shell
     go get github.com/dowling-john/gin_django_auth
 ```
 
