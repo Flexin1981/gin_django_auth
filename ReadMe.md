@@ -17,7 +17,7 @@ Features
     - Secure Gin routes with a Django session cookie
 
 <h3>Installation</h2>
-```shell
+```console
     go get github.com/dowling-john/gin_django_auth
 ```
 
