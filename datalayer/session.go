@@ -3,7 +3,6 @@ package datalayer
 import (
 	"context"
 	"database/sql"
-	"encoding/json"
 	"github.com/Flexin1981/gin_django_auth/django_models"
 	"github.com/uptrace/bun"
 	"github.com/uptrace/bun/dialect/pgdialect"
@@ -25,10 +24,7 @@ func (s *SessionService) Get(id string) (*django_models.Session, error) {
 
 func (s *SessionService) Create(user *django_models.AuthUser) (sessionId string, err error) {
 	var djangoSession django_models.Session
-	djangoSession.CreateKey()
-	j, err := json.Marshal(user)
-	djangoSession.EncodeData(j)
-
+	djangoSession.SessionKey = djangoSession.CreateKey()
 	db := bun.NewDB(sql.OpenDB(pgdriver.NewConnector(pgdriver.WithDSN(os.Getenv(DatabaseConnectionEnvironmentVariable)))), pgdialect.New())
 	if _, err := db.NewInsert().Model(&djangoSession).Exec(context.Background()); err != nil {
 		return djangoSession.SessionKey, err
