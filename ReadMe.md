@@ -2,22 +2,22 @@
 
 [![Go](https://github.com/dowling-john/gin_django_auth/actions/workflows/unit_testing.yaml/badge.svg)](https://github.com/dowling-john/gin_django_auth/actions/workflows/unit_testing.yaml)
 
-<h2>
-    Just to serve as a quick note This is currently under development and not ready for production yet.
-    Please keep checking back for updates and use the issues to add feature requests
-</h2>
-
-If you have a django backend/admin portal this module allows for the connection of you application to the django backend 
+<h2>If you have a django backend/admin portal this module allows for the connection of you application to the django backend 
 authentication and authorisation system. We use the sessionid cookie from the django sessions table to authenticate/authorise
-request coming into the gin router.
+request coming into the gin router.<h2>
 
-<h2>Installation</h2>
-```bash
+<h3>
+Features
+</h3>
+    - Secure Gin routes with a Django session cookie
+
+<h3>Installation</h2>
+```sh
     go get github.com/dowling-john/gin_django_auth
 ```
 
 
-<h2>Handler Usage</h2>
+<h3>Handler Usage</h2>
 
 ```golang
     import (
