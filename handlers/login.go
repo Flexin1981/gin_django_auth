@@ -29,8 +29,6 @@ func DjangoLoginHandler(c *gin.Context) {
 			return
 		}
 
-		sessionService.Create()
-
 		c.SetCookie(middleware.DjangoSessionCookie, id, 3600, "/", "localhost", false, true)
 		c.JSON(http.StatusOK, `{}`)
 		return
