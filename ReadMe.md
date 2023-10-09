@@ -19,7 +19,7 @@ request coming into the gin router.
 
 ```golang
     import (
-	    "github.com/Flexin1981/gin_django_auth/middleware")
+	    "github.com/Flexin1981/gin_django_auth/middleware"
     )
 
     router.POST("/graphql", middleware.LoginRequired, handlers.GraphQlHandler)
