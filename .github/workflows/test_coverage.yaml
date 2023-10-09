@@ -1,4 +1,4 @@
-name: Generate code coverage badge
+name: Test Coverage
 
 on: [push]
 
