@@ -1,7 +1,6 @@
 <h1>Gin-Gonic Django Authentication Handler</h1>
 
-![example workflow]
-(https://github.com/dowling-john/gin_django_auth/actions/workflows/unit_testing.yaml)
+[![Go](https://github.com/dowling-john/gin_django_auth/actions/workflows/unit_testing.yaml/badge.svg)](https://github.com/dowling-john/gin_django_auth/actions/workflows/unit_testing.yaml)
 
 <h2>
     Just to serve as a quick note This is currently under development and not ready for production yet.
