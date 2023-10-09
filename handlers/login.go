@@ -28,6 +28,7 @@ func DjangoLoginHandler(c *gin.Context) {
 			c.JSON(http.StatusInternalServerError, `{}`)
 			return
 		}
+
 		c.SetCookie(middleware.DjangoSessionCookie, id, 3600, "/", "localhost", false, true)
 		c.JSON(http.StatusOK, `{}`)
 		return
