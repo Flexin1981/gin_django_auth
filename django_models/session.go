@@ -14,3 +14,11 @@ type (
 		ExpireDate  time.Time `bun:"expire_date"`
 	}
 )
+
+func (s *Session) CreateKey() {
+
+}
+
+func (s *Session) EncodeData(data []byte) {
+
+}
