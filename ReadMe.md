@@ -2,6 +2,7 @@
 
 [![Go](https://github.com/dowling-john/gin_django_auth/actions/workflows/unit_testing.yaml/badge.svg)](https://github.com/dowling-john/gin_django_auth/actions/workflows/unit_testing.yaml)
 
+
 <h4>
 If you have a django backend/admin portal this module allows for the connection of you application to the django backend 
 authentication and authorisation system. 
