@@ -32,12 +32,6 @@ type (
 	}
 )
 
-func NewSession() *Session {
-	s := &Session{}
-	s.SessionKey = s.CreateKey()
-	return s
-}
-
 func (s *Session) CreateKey() string {
 	b := make([]rune, 32)
 	for i := range b {
@@ -60,15 +54,8 @@ func (s *Session) EncodeObject(objectToEncode []byte) (string) {
 
 func (s *Session) SignObject(data []byte) string {
 	encodedObject := s.EncodeObject(s.CompressObject(data))
-	timeStampSigner, err := signing.NewTimestampSigner(key, Seperator, Salt)
-	if err != nil {
-		panic(err)
-	}
+	timeStampSigner, _ := signing.NewTimestampSigner(key, Seperator, Salt)
 	timeStampedSignedString := timeStampSigner.Sign(encodedObject)
-	
-	signer, err := signing.NewSigner(key, Seperator, Salt)
-	if err != nil {
-		panic(err)
-	}
+	signer, _ := signing.NewSigner(key, Seperator, Salt)
 	return signer.Sign(timeStampedSignedString)
 }
