@@ -28,7 +28,7 @@ type (
 
 func (s *SessionService) convertAuthUser(user *django_models.AuthUser) *SessionData {
 	sessionData := SessionData{}
-	sessionData.AuthUserId = string(user.Id)
+	sessionData.AuthUserId = fmt.Sprint(user.Id)
 	return &sessionData
 }
 
