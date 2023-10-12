@@ -7,7 +7,7 @@ import (
 
 type SessionServiceInterface interface {
 	Get(id string) (*django_models.Session, error)
-	Create(user *django_models.AuthUser) (string, error)
+	Create(user *django_models.AuthUser) (*django_models.Session, error)
 }
 
 type AuthUserServiceInterface interface {

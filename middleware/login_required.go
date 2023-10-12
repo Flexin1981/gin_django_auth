@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"fmt"
 	"github.com/Flexin1981/gin_django_auth/datalayer"
 	"github.com/gin-gonic/gin"
 	"log"
@@ -22,6 +23,7 @@ func sessionTokenExistsInRequest(c *gin.Context) bool {
 func sessionTokenExistsInDatabase(c *gin.Context, d datalayer.SessionServiceInterface) bool {
 	cookie, _ := c.Cookie(DjangoSessionCookie)
 	if _, err := d.Get(cookie); err != nil {
+		fmt.Println(err)
 		return false
 	}
 	return true
