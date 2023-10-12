@@ -1,10 +1,10 @@
 package datalayer
 
 import (
-	"fmt"
 	"context"
 	"database/sql"
 	"encoding/json"
+	"fmt"
 	"os"
 
 	"github.com/Flexin1981/gin_django_auth/django_models"
@@ -26,38 +26,38 @@ type (
 	}
 )
 
-func (s *SessionService) convertAuthUser(user *django_models.AuthUser) (sessionData *SessionData) {
+func (s *SessionService) convertAuthUser(user *django_models.AuthUser) *SessionData {
+	sessionData := SessionData{}
 	sessionData.AuthUserId = string(user.Id)
-	return 
+	return &sessionData
 }
 
 
-func (s *SessionService) Get(id string) (*django_models.Session, error) {
+func (s *SessionService) Get(sessionKey string) (*django_models.Session, error) {
 	var djangoSession django_models.Session
+	fmt.Println(sessionKey)
 	db := bun.NewDB(sql.OpenDB(pgdriver.NewConnector(pgdriver.WithDSN(os.Getenv(DatabaseConnectionEnvironmentVariable)))), pgdialect.New())
-	if err := db.NewSelect().Model(&djangoSession).Where(BunQueryString, bun.Ident("id"), id).Scan(context.Background()); err != nil {
+	if err := db.NewSelect().Model(&djangoSession).Where(BunQueryString, "session_key", sessionKey).Scan(context.Background()); err != nil {
 		return &djangoSession, err
 	}
 	return &djangoSession, nil
 }
 
-func (s *SessionService) Create(user *django_models.AuthUser) (djangoSession *django_models.Session, err error) {
+func (s *SessionService) Create(user *django_models.AuthUser) (*django_models.Session, error) {
+	djangoSession := django_models.Session{}
 	djangoSession.SessionKey = djangoSession.CreateKey()
 
 	sessionData := s.convertAuthUser(user)
 
 	jsonData, err := json.Marshal(sessionData)
 	if err != nil {
-		return djangoSession, err
+		return &djangoSession, err
 	}
 
 	djangoSession.SessionData = djangoSession.SignObject(jsonData)
-
-	fmt.Println(djangoSession)
 	db := bun.NewDB(sql.OpenDB(pgdriver.NewConnector(pgdriver.WithDSN(os.Getenv(DatabaseConnectionEnvironmentVariable)))), pgdialect.New())
 	if _, err := db.NewInsert().Model(&djangoSession).Exec(context.Background()); err != nil {
-		return djangoSession, err
+		return &djangoSession, err
 	}
-	
-	return djangoSession, nil
+	return &djangoSession, nil
 }

@@ -28,7 +28,7 @@ type (
 	Session struct {
 		bun.BaseModel `bun:"table:django_session"`
 
-		SessionKey  string    `bun:",pk,session_key"`
+		SessionKey  string    `bun:"session_key,pk"`
 		SessionData string    `bun:"session_data"`
 		ExpireDate  time.Time `bun:"expire_date"`
 	}

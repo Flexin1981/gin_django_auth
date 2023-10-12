@@ -1,6 +1,7 @@
 package django_models
 
 import (
+	"fmt"
 	"crypto/sha1"
 	"github.com/uptrace/bun"
 	"golang.org/x/crypto/pbkdf2"
@@ -16,9 +17,8 @@ type (
 		Id          int64		`json:"id"`
 		Password    string		`json:"password"`
 		LastLogin   time.Time	`json:"last_login"`
-		IsSuperUser bool		`json:"is_super_user"`
 		Username    string		`json:"username"`
-		Firstname   string		`json:"firstname"`
+		FirstName   string		`json:"first_name"`
 		LastName    string		`json:"last_name"`
 		Email       string		`json:"email"`
 		IsStaff     bool		`json:"is_staff"`
@@ -34,5 +34,7 @@ func (a *AuthUser) Encode(password, salt string, iterations int) string {
 func (a *AuthUser) Verify(password string) bool {
 	splitEncoded := strings.Split(a.Password, "$")
 	iterations, _ := strconv.ParseInt(splitEncoded[1], 10, 64)
+	fmt.Println(a.Encode(password, splitEncoded[2], int(iterations)))
+	fmt.Println(a.Password)
 	return a.Encode(password, splitEncoded[2], int(iterations)) == a.Password
 }
