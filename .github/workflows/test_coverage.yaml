@@ -4,6 +4,7 @@ on: [push, pull_request]
 
 jobs:
   coverage:
+    permissions: write-all
     name: Go test coverage check
     runs-on: ubuntu-latest
     steps:
