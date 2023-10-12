@@ -8,6 +8,10 @@ github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ3
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/enricofoltran/baseconv v0.1.0 h1:MNSNhK3oxf7VKPSj5XAr80zMVzlMN4Vd27Yzcw8nKnc=
+github.com/enricofoltran/baseconv v0.1.0/go.mod h1:eH9wzQnnle3m96hHMchwgY+v6Y3xrLX/XPKCdxRKZJI=
+github.com/enricofoltran/signing v0.0.0-20190121203227-449fd9a552cf h1:qw+KsKphv5oRHiZGje6XH88sGNAyglIlrX1qP55DCvc=
+github.com/enricofoltran/signing v0.0.0-20190121203227-449fd9a552cf/go.mod h1:i+5JU/vofDsU19TITnGhY8n+yLH1WJUELFkdf5dOmUA=
 github.com/gabriel-vasile/mimetype v1.4.2 h1:w5qFW6JKBz9Y393Y4q372O9A7cUSequkh1Q7OhCmWKU=
 github.com/gabriel-vasile/mimetype v1.4.2/go.mod h1:zApsH/mKG4w07erKIaJPFiX0Tsq9BFQgN3qGY5GnNgA=
 github.com/gin-contrib/sse v0.1.0 h1:Y/yl/+YNO8GZSjAhjMsSuLt29uWRFHdHYUb5lYOV9qE=

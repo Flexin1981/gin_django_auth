@@ -13,17 +13,17 @@ type (
 	AuthUser struct {
 		bun.BaseModel `bun:"table:auth_user"`
 
-		id          int64
-		Password    string
-		LastLogin   time.Time
-		IsSuperUser bool
-		Username    string
-		Firstname   string
-		LastName    string
-		Email       string
-		IsStaff     bool
-		IsActive    bool
-		DateJoined  time.Time
+		Id          int64		`json:"id"`
+		Password    string		`json:"password"`
+		LastLogin   time.Time	`json:"last_login"`
+		IsSuperUser bool		`json:"is_super_user"`
+		Username    string		`json:"username"`
+		Firstname   string		`json:"firstname"`
+		LastName    string		`json:"last_name"`
+		Email       string		`json:"email"`
+		IsStaff     bool		`json:"is_staff"`
+		IsActive    bool		`json:"is_active"`
+		DateJoined  time.Time	`json:"date_joined"`
 	}
 )
 

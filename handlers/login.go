@@ -23,13 +23,14 @@ func DjangoLoginHandler(c *gin.Context) {
 
 	if user.Verify(inputJson.Password) {
 		sessionService := datalayer.NewSessionService()
-		id, err := sessionService.Create(user)
+		
+		session, err := sessionService.Create(user)
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, `{}`)
 			return
 		}
 
-		c.SetCookie(middleware.DjangoSessionCookie, id, 3600, "/", "localhost", false, true)
+		c.SetCookie(middleware.DjangoSessionCookie, session.SessionKey, 3600, "/", "localhost", false, true)
 		c.JSON(http.StatusOK, `{}`)
 		return
 	}

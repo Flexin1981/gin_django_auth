@@ -10,10 +10,13 @@ require (
 	golang.org/x/crypto v0.13.0
 )
 
+require github.com/enricofoltran/baseconv v0.1.0 // indirect
+
 require (
 	github.com/bytedance/sonic v1.9.1 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/enricofoltran/signing v0.0.0-20190121203227-449fd9a552cf
 	github.com/gabriel-vasile/mimetype v1.4.2 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
