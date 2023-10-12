@@ -17,8 +17,7 @@ type AuthUserServiceInterface interface {
 
 func NewSessionService() SessionServiceInterface {
 	if os.Getenv("GINDJANGOAUTHTEST") == "true" {
-		//ToDo: fix the mock testing once this is up and running
-		return nil
+		return &MockSessionService{}
 	}
 	return &SessionService{}
 }

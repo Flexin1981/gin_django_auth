@@ -12,7 +12,10 @@ require (
 
 require (
 	github.com/enricofoltran/baseconv v0.1.0 // indirect
+	github.com/golang/mock v1.6.0 // indirect
 	github.com/meehow/go-django-hashers v0.0.0-20171231135116-5e5d6afe52db // indirect
+	golang.org/x/mod v0.8.0 // indirect
+	golang.org/x/tools v0.6.0 // indirect
 )
 
 require (

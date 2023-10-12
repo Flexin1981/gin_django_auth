@@ -8,6 +8,10 @@ import (
 type MockSessionService struct {
 }
 
+func (s *MockSessionService) Create(user *django_models.AuthUser) (*django_models.Session, error) {
+	return &django_models.Session{}, nil
+}
+
 func (s *MockSessionService) Get(id string) (*django_models.Session, error) {
 	if id == "error" {
 		return nil, errors.New("unknown id")
