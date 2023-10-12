@@ -11,7 +11,7 @@
             "mode": "auto",
             "program": "${workspaceFolder}/main",
             "env": {
-                "GINDJANGOAUTHDBCONNECTIONSTRING": "postgres://john:sp0rtspr3dict0r@10.0.27.2:5432/sports_prediction?sslmode=disable"
+                "GINDJANGOAUTHDBCONNECTIONSTRING": "postgres://john:!05May1981@82.5.181.187:5432/sports_prediction?sslmode=disable"
               }
         }
     ]

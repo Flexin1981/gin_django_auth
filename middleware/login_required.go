@@ -42,7 +42,8 @@ func LoginRequired(c *gin.Context) {
 	d := datalayer.NewSessionService()
 	if sessionTokenExistsInRequest(c) && !sessionTokenBlank(c) && sessionTokenExistsInDatabase(c, d) {
 		c.Next()
+	} else {
+		c.AbortWithStatusJSON(http.StatusUnauthorized, UnauthorizedJson)
+		return
 	}
-	c.AbortWithStatusJSON(http.StatusUnauthorized, UnauthorizedJson)
-	return
 }
