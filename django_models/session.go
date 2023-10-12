@@ -4,9 +4,7 @@ import (
 	"bytes"
 	"compress/zlib"
 	"fmt"
-	"io"
 	"math/rand"
-	"strings"
 	"time"
 
 	"encoding/base64"
@@ -73,18 +71,4 @@ func (s *Session) SignObject(data []byte) string {
 		panic(err)
 	}
 	return signer.Sign(timeStampedSignedString)
-}
-
-func (s *Session) UnSignObject(data []byte) (string, error) {
-	b := bytes.NewReader(data)
-	r, err := zlib.NewReader(b)
-	if err != nil {
-		return "", err
-	}
-	buf := new(strings.Builder)
-	_, _ = io.Copy(buf, r)
-
-	r.Close()
-
-	return buf.String(), nil
 }
