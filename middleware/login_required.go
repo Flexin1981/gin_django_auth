@@ -38,6 +38,8 @@ func sessionTokenBlank(c *gin.Context) bool {
 	return false
 }
 
+// LoginRequired uses a cookie named "sessionid", this session id is compared to the django_sessions table
+// If the session is in the table the user is considered as authenticated.
 func LoginRequired(c *gin.Context) {
 	d := datalayer.NewSessionService()
 	if sessionTokenExistsInRequest(c) && !sessionTokenBlank(c) && sessionTokenExistsInDatabase(c, d) {

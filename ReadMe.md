@@ -15,14 +15,21 @@ request coming into the gin router.
 Features
 </h3>
     - Secure Gin routes with a Django session cookie
+    - Adding login handler to create session on the django server
 
 <h3>Installation</h2>
 ```
     go get github.com/dowling-john/gin_django_auth
 ```
 
+<h3>Required environment variables</h3>
 
-<h3>Handler Usage</h2>
+```
+    GINDJANGOAUTHDBCONNECTIONSTRING : "postgres://<username>:<password>@<host>:5432/<db>?sslmode=disable"
+```
+
+
+<h3>Login Required Usage</h2>
 
 ```golang
     import (
@@ -30,5 +37,16 @@ Features
     )
 
     router.POST("/graphql", middleware.LoginRequired, handlers.GraphQlHandler)
+    
+```
+
+<h3>Handler Usage</h2>
+
+```golang
+    import (
+	    "github.com/Flexin1981/gin_django_auth/handlers"
+    )
+
+    router.POST("/login", handlers.DjangoLoginHandler)
     
 ```
