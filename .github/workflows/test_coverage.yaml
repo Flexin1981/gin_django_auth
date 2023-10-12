@@ -1,6 +1,6 @@
 name: Test Coverage
 
-on: [pull_request]
+on: [push, pull_request]
 
 jobs:
   coverage:
@@ -9,23 +9,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-go@v3
-
-      - name: generate test coverage
+      
+      - name: generate test generate coverage
         run: go test ./... -coverprofile=./cover.out
 
       - name: check test coverage
+        id: coverage ## this step must have id
         uses: vladopajic/go-test-coverage@v2
         with:
-          # Configure action using config file (option 1)
-          config: ./.testcoverage.yml
-
-          # Configure action by specifying input parameters individually (option 2)
           profile: cover.out
           local-prefix: github.com/org/project
           threshold-file: 80
           threshold-package: 80
-          threshold-total: 90
-
+          threshold-total: 95
+      
       - name: make coverage badge
         uses: action-badges/core@0.2.2
         if: contains(github.ref, 'main')
@@ -34,5 +31,5 @@ jobs:
           message: ${{ steps.coverage.outputs.badge-text }}
           message-color: ${{ steps.coverage.outputs.badge-color }}
           file-name: coverage.svg
-          badge-branch: badges ## orphan branch where badge will be committed
+          badge-branch: badges
           github-token: "${{ secrets.GITHUB_TOKEN }}"
