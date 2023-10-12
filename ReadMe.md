@@ -1,7 +1,7 @@
 <h1>Gin-Gonic Django Authentication Handler</h1>
 
 [![Unit Tests](https://github.com/dowling-john/gin_django_auth/actions/workflows/unit_testing.yaml/badge.svg)](https://github.com/dowling-john/gin_django_auth/actions/workflows/unit_testing.yaml)
-[![Test Coverage](https://github.com/dowling-john/gin_django_auth/actions/workflows/test_coverage.yaml/badge.svg)](https://github.com/dowling-john/gin_django_auth/actions/workflows/test_coverage.yaml)
+[![Test Coverage](https://raw.githubusercontent.com/dowling-john/gin_django_auth/badges/.badges/main/coverage.svg)
 
 <h4>
 If you have a django backend/admin portal this module allows for the connection of you application to the django backend 
