@@ -14,10 +14,12 @@ request coming into the gin router.
 <h3>
 Features
 </h3>
-    - Secure Gin routes with a Django session cookie
-    - Adding login handler to create session on the django server
+
+- Secure Gin routes with a Django session cookie
+- Adding login handler to create session on the django server
 
 <h3>Installation</h2>
+
 ```
     go get github.com/dowling-john/gin_django_auth
 ```

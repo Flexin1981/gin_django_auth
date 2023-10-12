@@ -2,10 +2,11 @@ package middleware
 
 import (
 	"fmt"
-	"github.com/Flexin1981/gin_django_auth/datalayer"
-	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
+
+	"github.com/Flexin1981/gin_django_auth/datalayer"
+	"github.com/gin-gonic/gin"
 )
 
 const (
