@@ -2,15 +2,9 @@ package datalayer
 
 import (
 	"context"
-	"database/sql"
 	"encoding/json"
 	"fmt"
-	"os"
-
 	"github.com/Flexin1981/gin_django_auth/django_models"
-	"github.com/uptrace/bun"
-	"github.com/uptrace/bun/dialect/pgdialect"
-	"github.com/uptrace/bun/driver/pgdriver"
 )
 
 type (
@@ -36,7 +30,7 @@ func (s *SessionService) convertAuthUser(user *django_models.AuthUser) *SessionD
 func (s *SessionService) Get(sessionKey string) (*django_models.Session, error) {
 	var djangoSession django_models.Session
 	fmt.Println(sessionKey)
-	db := bun.NewDB(sql.OpenDB(pgdriver.NewConnector(pgdriver.WithDSN(os.Getenv(DatabaseConnectionEnvironmentVariable)))), pgdialect.New())
+	db := GetDatabaseConnection()
 	if err := db.NewSelect().Model(&djangoSession).
 	Where("session_key = ?", sessionKey).
 	Scan(context.Background()); err != nil {
@@ -57,7 +51,7 @@ func (s *SessionService) Create(user *django_models.AuthUser) (*django_models.Se
 	}
 
 	djangoSession.SessionData = djangoSession.SignObject(jsonData)
-	db := bun.NewDB(sql.OpenDB(pgdriver.NewConnector(pgdriver.WithDSN(os.Getenv(DatabaseConnectionEnvironmentVariable)))), pgdialect.New())
+	db := GetDatabaseConnection()
 	if _, err := db.NewInsert().Model(&djangoSession).Exec(context.Background()); err != nil {
 		return &djangoSession, err
 	}
