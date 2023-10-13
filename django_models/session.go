@@ -5,12 +5,13 @@ import (
 	"compress/zlib"
 	"fmt"
 	"math/rand"
+	"os"
 	"time"
 
 	"encoding/base64"
 
-	"github.com/uptrace/bun"
 	"github.com/enricofoltran/signing"
+	"github.com/uptrace/bun"
 )
 
 const (
@@ -19,7 +20,7 @@ const (
 )
 
 var validDigits = []rune("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
-var key string = "django-insecure-2z74-f1&^1xqaiw4!9^32^c*(9zr-zs1y5w2j9dlftb4@rz_3d"
+var key string = os.Getenv("GINDJANGOAUTHSIGNINGKEY")
 
 
 type (
