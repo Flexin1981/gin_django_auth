@@ -17,6 +17,8 @@ Features
 
 - Secure Gin routes with a Django session cookie
 - Adding login handler to create session on the django server
+- Support for multiple flavours of sql database
+
 
 <h3>Installation</h2>
 
@@ -28,6 +30,7 @@ Features
 
 ```
     GINDJANGOAUTHDBCONNECTIONSTRING : "postgres://<username>:<password>@<host>:5432/<db>?sslmode=disable"
+    GINDJANGOAUTHDBDIALECT: "postgres"
 ```
 
 
