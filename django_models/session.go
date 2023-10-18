@@ -20,7 +20,6 @@ const (
 )
 
 var validDigits = []rune("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
-var key string = os.Getenv("GINDJANGOAUTHSIGNINGKEY")
 
 
 type (
@@ -54,6 +53,7 @@ func (s *Session) EncodeObject(objectToEncode []byte) (string) {
 }
 
 func (s *Session) SignObject(data []byte) string {
+	key := os.Getenv("GINDJANGOAUTHSIGNINGKEY")
 	encodedObject := s.EncodeObject(s.CompressObject(data))
 	timeStampSigner, _ := signing.NewTimestampSigner(key, Seperator, Salt)
 	timeStampedSignedString := timeStampSigner.Sign(encodedObject)
