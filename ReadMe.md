@@ -31,6 +31,7 @@ Features
 ```
     GINDJANGOAUTHDBCONNECTIONSTRING : "postgres://<username>:<password>@<host>:5432/<db>?sslmode=disable"
     GINDJANGOAUTHDBDIALECT: "postgres"
+    GINDJANGOAUTHSIGNINGKEY: "django-insecure-2z74-f1&^1xqaiw4!9^32^c*(9zr-zs1y5w2j9dlftb4@rz_f5"
 ```
 
 
